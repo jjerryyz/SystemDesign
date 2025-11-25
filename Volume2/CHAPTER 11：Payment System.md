@@ -443,7 +443,18 @@ PSP 负责将资金从账户 A 转移到账户 B。  在此简化的场景中，
 
 支付安全非常重要。 在本系统设计的最后部分，我们将简要介绍一些用于防范网络攻击和信用卡盗用的技术手段。
 
-![Table16.](../images/v2/chapter11/Table11.6.png)
+| 问题 | 解决方案 |
+| :--- | :--- |
+| 请求/响应窃听 (Request/response eavesdropping) | 使用 HTTPS |
+| 数据篡改 (Data tampering) | 强制加密和完整性监控 |
+| 中间人攻击 (Man-in-the-middle attack) | 使用 SSL 并配合证书锁定 (Certificate Pinning) |
+| 数据丢失 (Data loss) | 跨多区域数据库复制和定期数据快照 |
+| 分布式拒绝服务攻击 (DDoS) | 限流和防火墙 [25] |
+| 信用卡盗窃 (Card theft) | 令牌化 (Tokenization)。不直接使用真实的信用卡号，而是存储并使用令牌进行支付 |
+| PCI 合规性 (PCI compliance) | PCI DSS 是处理品牌信用卡机构的信息安全标准 |
+| 欺诈 (Fraud) | 地址验证、卡验证码 (CVV)、用户行为分析等 [26] [27] |
+
+<div align="center">表 11.6 支付安全</div>
 
 ## 第4步 - 总结
 
@@ -463,7 +474,7 @@ PSP 负责将资金从账户 A 转移到账户 B。  在此简化的场景中，
 
 ### 章节总结
 
-![Summary.png](../images/v2/chapter11/Figure11.13.png)
+![Summary.png](../images/v2/chapter11/Figure11.132.svg)
 
 ## 参考资料
 
